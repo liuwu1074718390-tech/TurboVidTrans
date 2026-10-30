@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>21tb 视频极速控制器</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="popup-header">
+      <div class="popup-title">
+        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        21tb 极速控制器
+      </div>
+      <div class="version-badge">v1.0</div>
+    </div>
+
+    <!-- 核心大字展示与滑杆 -->
+    <div class="rate-card">
+      <div class="current-rate-display" id="rate_val_display">1.0x</div>
+      <div class="slider-row">
+        <input type="range" class="speed-slider" id="rate_slider" min="0.1" max="16.0" step="0.5" value="1.0">
+      </div>
+    </div>
+
+    <!-- 预设倍速网格 -->
+    <div class="rate-grid">
+      <button class="rate-btn" data-rate="1.0">1.0x</button>
+      <button class="rate-btn" data-rate="1.5">1.5x</button>
+      <button class="rate-btn" data-rate="2.0">2.0x</button>
+      <button class="rate-btn" data-rate="3.0">3.0x</button>
+      <button class="rate-btn" data-rate="5.0">5.0x</button>
+      <button class="rate-btn" data-rate="8.0">8.0x</button>
+      <button class="rate-btn" data-rate="12.0">12x</button>
+      <button class="rate-btn" data-rate="16.0">16x ⚡</button>
+    </div>
+
+    <!-- 功能开关 -->
+    <div class="toggles-section">
+      <div class="toggle-row">
+        <span>防回滚锁定 (强破2x)</span>
+        <label class="switch">
+          <input type="checkbox" id="toggle_lock" checked>
+          <span class="slider-round"></span>
+        </label>
+      </div>
+      <div class="toggle-row">
+        <span>防失焦暂停 (切屏播放)</span>
+        <label class="switch">
+          <input type="checkbox" id="toggle_prevent_blur" checked>
+          <span class="slider-round"></span>
+        </label>
+      </div>
+      <div class="toggle-row">
+        <span>超高倍速(>4x)自动静音</span>
+        <label class="switch">
+          <input type="checkbox" id="toggle_auto_mute">
+          <span class="slider-round"></span>
+        </label>
+      </div>
+      <div class="toggle-row">
+        <span>显示页面悬浮面板</span>
+        <label class="switch">
+          <input type="checkbox" id="toggle_show_floating">
+          <span class="slider-round"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="footer-tip">
+      页面悬浮胶囊可自由拖拽折叠<br>
+      快捷键: [ 减速 | ] 加速 | = 16x极速
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

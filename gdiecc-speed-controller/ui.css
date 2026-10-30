@@ -1,0 +1,241 @@
+/* 21tb 视频极速控制器 - 悬浮胶囊控制面板样式 */
+
+#__21tb_speed_controller_container__ {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  z-index: 2147483647; /* 保证置顶在播放器之上 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  user-select: none;
+  line-height: 1.4;
+  box-sizing: border-box;
+}
+
+#__21tb_speed_controller_container__ * {
+  box-sizing: border-box;
+}
+
+/* 展开的主卡片面板 */
+.__21tb_speed_panel {
+  display: flex;
+  flex-direction: column;
+  background: rgba(17, 24, 39, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  padding: 12px;
+  width: 250px;
+  color: #f3f4f6;
+  font-size: 13px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 顶部标题栏（拖拽柄） */
+.__21tb_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: grab;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
+}
+
+.__21tb_header:active {
+  cursor: grabbing;
+}
+
+.__21tb_title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #60a5fa;
+}
+
+.__21tb_title svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.__21tb_actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.__21tb_icon_btn {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: all 0.15s ease;
+}
+
+.__21tb_icon_btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* 当前速度大徽标展示 */
+.__21tb_speed_badge_row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.__21tb_current_rate_text {
+  font-size: 26px;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: -0.5px;
+}
+
+.__21tb_status_chip {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.__21tb_status_chip.unlocked {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* 预设倍速网格按钮 */
+.__21tb_btn_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.__21tb_rate_btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e5e7eb;
+  padding: 5px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.15s ease;
+}
+
+.__21tb_rate_btn:hover {
+  background: rgba(56, 189, 248, 0.25);
+  border-color: #38bdf8;
+  color: #ffffff;
+}
+
+.__21tb_rate_btn.active {
+  background: #0284c7;
+  border-color: #38bdf8;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+/* 自定义输入与微调 */
+.__21tb_custom_row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.__21tb_custom_input {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f3f4f6;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 13px;
+  outline: none;
+  width: 60px;
+}
+
+.__21tb_custom_input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+.__21tb_step_btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f3f4f6;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+
+.__21tb_step_btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* 快捷键提示条 */
+.__21tb_tips {
+  font-size: 10.5px;
+  color: #9ca3af;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* 最小化胶囊按钮（折叠态） */
+.__21tb_mini_badge {
+  display: none;
+  background: rgba(17, 24, 39, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  color: #38bdf8;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  align-items: center;
+  gap: 4px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.__21tb_mini_badge:hover {
+  background: rgba(30, 41, 59, 0.95);
+  transform: scale(1.05);
+}
+
+/* 折叠显隐控制 */
+#__21tb_speed_controller_container__.minimized .__21tb_speed_panel {
+  display: none;
+}
+
+#__21tb_speed_controller_container__.minimized .__21tb_mini_badge {
+  display: flex;
+}

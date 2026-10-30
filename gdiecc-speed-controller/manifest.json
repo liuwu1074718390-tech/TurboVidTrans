@@ -1,0 +1,63 @@
+{
+  "manifest_version": 3,
+  "name": "21tb视频极速控制器 (最高16倍速防失效)",
+  "version": "1.0.0",
+  "description": "专为21tb/网课平台打造的防失效视频调速插件，突破2倍速限制，最高支持16倍速播放，内置防作弊状态欺骗与事件拦截机制。",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.21tb.com/*",
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "21tb 视频极速控制器"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.21tb.com/*",
+        "<all_urls>"
+      ],
+      "js": [
+        "inject.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": true,
+      "match_about_blank": true
+    },
+    {
+      "matches": [
+        "*://*.21tb.com/*",
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "ui.css"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "inject.js",
+        "ui.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

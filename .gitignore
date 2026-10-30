@@ -1,0 +1,24 @@
+# 依赖与输出目录
+node_modules/
+output/
+.DS_Store
+
+# 密钥与证书 (严禁上传)
+*.pem
+*.key
+*.cert
+*.crt
+
+# 打包构建产物
+*.crx
+
+# 内部数据库运维与数据治理脚本 (避免内部结构与配置外泄)
+kxc_*.py
+backup_before_adjustment.py
+check_rate_linkage.py
+execute_professional_governance.py
+generate_code_word_doc.py
+inspect_project_types_diff.py
+patch_detail_vue.py
+restore_project_type_single.py
+sync_page_display_names.py
